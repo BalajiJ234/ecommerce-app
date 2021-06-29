@@ -40,8 +40,7 @@ class Users extends Component {
         <TableContainer
           component={Paper}
           elevation={3}
-          style={{ padding: "20px", marginTop: "80px" }}
-        >
+          style={{ padding: "20px", marginTop: "80px" }}>
           <Table>
             <TableHead>
               <TableRow>
