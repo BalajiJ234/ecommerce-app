@@ -1,7 +1,5 @@
 // Class Component - class keyword, define state object
 // Functional component - hooks - useState()
-
-import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
@@ -33,8 +31,7 @@ const Home = () => {
               padding: "20px",
               color: "darkblue",
               backgroundColor: "lightcoral",
-            }}
-          >
+            }}>
             paper
           </Paper>
         </Grid>
@@ -50,8 +47,7 @@ const Home = () => {
               padding: "20px",
               color: "darkblue",
               backgroundColor: "lightcoral",
-            }}
-          >
+            }}>
             paper
           </Paper>
         </Grid>

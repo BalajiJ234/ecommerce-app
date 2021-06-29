@@ -1,5 +1,4 @@
-import { Typography } from "@material-ui/core";
-import React, { Component } from "react";
+import { Component } from "react";
 import {
   Paper,
   Table,
