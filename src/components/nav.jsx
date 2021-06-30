@@ -1,6 +1,24 @@
-import { AppBar, Toolbar, Typography, Button, Box } from "@material-ui/core";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Box,
+  Badge,
+  withStyles,
+  IconButton,
+} from "@material-ui/core";
+import { ShoppingCartRounded } from "@material-ui/icons";
 import { NavLink } from "react-router-dom";
 
+const StyledBadge = withStyles((theme) => ({
+  badge: {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: "0 4px",
+  },
+}))(Badge);
 const Nav = () => {
   return (
     <AppBar color='secondary'>
@@ -30,6 +48,11 @@ const Nav = () => {
         <Button color='inherit' component={NavLink} to='/register'>
           Register
         </Button>
+        <IconButton aria-label='cart' component={NavLink} to='/cart'>
+          <StyledBadge badgeContent={4} color='secondary'>
+            <ShoppingCartRounded />
+          </StyledBadge>
+        </IconButton>
       </Toolbar>
     </AppBar>
   );
