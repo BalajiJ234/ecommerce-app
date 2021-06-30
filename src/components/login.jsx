@@ -1,4 +1,13 @@
-import { Typography } from "@material-ui/core";
+import {
+  Typography,
+  Paper,
+  Grid,
+  TextField,
+  InputLabel,
+  FormControl,
+  Button,
+  Select,
+} from "@material-ui/core";
 import React, { Component } from "react";
 import axios from "axios";
 
@@ -29,54 +38,69 @@ class Login extends Component {
   };
   render() {
     return (
-      <div>
-        <Typography variant='h1' style={{ marginTop: "100px" }}>
+      <Grid
+        item
+        md={6}
+        style={{
+          marginTop: "20px",
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}>
+        <Typography variant='h5' style={{ marginTop: "70px" }}>
           Login Form
         </Typography>
-        <form className='w-50 mx-auto border p-3' onSubmit={this.handleSubmit}>
-          <div className='mb-3'>
-            <label htmlFor='exampleInputEmail1' className='form-label'>
-              User Id
-            </label>
-            <input
-              type='text'
-              className='form-control'
-              id='exampleInputEmail1'
-              aria-describedby='emailHelp'
-              name='userId'
-              value={this.state.user.userId}
+        <Paper elevation={3} style={{ padding: "30px", marginTop: "10px" }}>
+          <form onSubmit={this.handleSubmit}>
+            <TextField
+              id='outlined-email'
+              label='Email'
+              placeholder='Enter email'
+              variant='outlined'
+              type='email'
+              name='email'
+              value={this.state.user.email}
               onChange={this.handleChange}
+              fullWidth
+              style={{ marginBottom: 10 }}
             />
-          </div>
-          <div className='mb-3'>
-            <label htmlFor='exampleInputPassword1' className='form-label'>
-              Password
-            </label>
-            <input
+            <TextField
+              id='outlined-password'
+              label='Password'
+              placeholder='Enter password'
+              variant='outlined'
               type='password'
-              className='form-control'
-              id='exampleInputPassword1'
               name='password'
               value={this.state.user.password}
               onChange={this.handleChange}
+              fullWidth
+              style={{ marginBottom: 10 }}
             />
-          </div>
-          <select
-            className='form-select mb-3'
-            aria-label='Default select example'
-            name='role'
-            onChange={this.handleChange}>
-            <option value='customer'>Customer</option>
-            <option value='user'>User</option>
-            <option value='admin'>Admin</option>
-          </select>
-          <div className='d-grid'>
-            <button type='submit' className='btn btn-primary '>
-              Submit
-            </button>
-          </div>
-        </form>
-      </div>
+            <FormControl
+              variant='filled'
+              fullWidth
+              style={{ marginBottom: 10 }}>
+              <InputLabel htmlFor='filled-role-native-simple'>Role</InputLabel>
+              <Select
+                native
+                value={this.state.user.role}
+                name='role'
+                onChange={this.handleChange}
+                inputProps={{
+                  name: "role",
+                  id: "filled-role-native-simple",
+                }}>
+                <option aria-label='None' value='' />
+                <option value='customer'>Customer</option>
+                <option value='user'>User</option>
+                <option value='admin'>Admin</option>
+              </Select>
+            </FormControl>
+            <Button variant='contained' color='primary' type='submit' fullWidth>
+              Login
+            </Button>
+          </form>
+        </Paper>
+      </Grid>
     );
   }
 }
