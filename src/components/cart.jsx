@@ -7,6 +7,10 @@ import {
   TableBody,
   TableCell,
   TableRow,
+  TextField,
+  Button,
+  Box,
+  Paper,
   // Container,
 } from "@material-ui/core";
 
@@ -52,36 +56,52 @@ const Cart = () => {
 
   return (
     <div style={{ marginTop: "100px" }}>
-      <TableContainer>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Id</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>Quantity</TableCell>
-              <TableCell>Price</TableCell>
-              <TableCell>Total Price</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {products.map((product, key) => (
-              <TableRow key={key}>
-                <TableCell>{product.id}</TableCell>
-                <TableCell>{product.name}</TableCell>
-                <TableCell>
-                  <Counter
-                    handleDecrement={() => handleDecrement(product.id)}
-                    handleIncrement={() => handleIncrement(product.id)}
-                    product={product}
-                  />
-                </TableCell>
-                <TableCell>{product.price}</TableCell>
-                <TableCell>{product.price * product.quantity}</TableCell>
+      <Paper elevation={7} style={{ padding: "30px", marginTop: "10px" }}>
+        <Box style={{ display: "flex", justifyContent: "flex-end" }}>
+          <TextField
+            id='search'
+            variant='filled'
+            label='Search By Name'
+            type='search'
+          />
+          <Button
+            variant='contained'
+            color='primary'
+            style={{ marginLeft: "10px" }}>
+            Add
+          </Button>
+        </Box>
+        <TableContainer>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Id</TableCell>
+                <TableCell>Name</TableCell>
+                <TableCell>Quantity</TableCell>
+                <TableCell>Price</TableCell>
+                <TableCell>Total Price</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            </TableHead>
+            <TableBody>
+              {products.map((product, key) => (
+                <TableRow key={key}>
+                  <TableCell>{product.id}</TableCell>
+                  <TableCell>{product.name}</TableCell>
+                  <TableCell>
+                    <Counter
+                      handleDecrement={() => handleDecrement(product.id)}
+                      handleIncrement={() => handleIncrement(product.id)}
+                      product={product}
+                    />
+                  </TableCell>
+                  <TableCell>{product.price}</TableCell>
+                  <TableCell>{product.price * product.quantity}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Paper>
     </div>
   );
 };
