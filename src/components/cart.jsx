@@ -11,7 +11,6 @@ import {
 } from "@material-ui/core";
 
 const Cart = () => {
-  // const [x, setX] = useState(5);
   const [products, setProducts] = useState([
     {
       id: 1,
